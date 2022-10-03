@@ -95,13 +95,13 @@ itoa:
         li    $t5, 1        # Contador
         li    $t7, 45    # Caracter "-" en ascii
 
-        blt    $a0, 0, Menor1    # Si el número es negativo lo pasamos a Menos que hará su valor absoluto
+        blt    $a0, 0, Menor1    # Si el nÃºmero es negativo lo pasamos a Menos que harÃ¡ su valor absoluto
 
     Cuentas1:
         divu    $a0, $t2    # Dividimos entre 10
         mfhi    $t3          # Resto a t3
         mflo    $a0        # Cociente a a0
-        addiu    $t3, $t3, 48    # Conversióna a ascii
+        addiu    $t3, $t3, 48    # ConversiÃ³na a ascii
         sb    $t3, 0($a2)    # Guardamos en el vector en el que se van a introducir del reves
         beq    $a0, 0, Vuelta1    # Si hemos terminados de dividir, vamos a darle la vuelta al vector
         addiu    $t5, $t5, 1    # Contador de caracteres +1
@@ -112,14 +112,14 @@ itoa:
 
     Menor1:
         addiu    $t6, $t6, 1    # Sumamos 1 al flag de signo
-        mulu    $a0, $a0, -1    # Multiplicamos el número por -1 para valor absoluto de este
+        mulu    $a0, $a0, -1    # Multiplicamos el nÃºmero por -1 para valor absoluto de este
         j Cuentas1
 	Vuelta1:
     beq    $t6, 1, Signo1        # Si el flag de signpo es uno, pasamos a introducir un "-" en el vector de salida
 
 	Bucle1:
-    lb    $t1, 0($a2)        # Cargamos última posicion del vector invertido
-    sb    $t1, 0($a1)        # Introducimos esta posición en la primera posicion del vector de salida
+    lb    $t1, 0($a2)        # Cargamos Ãºltima posicion del vector invertido
+    sb    $t1, 0($a1)        # Introducimos esta posiciÃ³n en la primera posicion del vector de salida
     subu    $a2, $a2, 1        # Restamos 8 bits al vector inverso
     beq    $t5, 0, Fin1        # Si el cintador es 0 se pasa al final
     addu    $a1, $a1, 1        # Siguientes 8 bits del vector de salida
@@ -348,7 +348,7 @@ containsAllChars:
 	li $t4, 0		#Contador de caracteres iguales
 	
 	la $t1, ($a1)
-	GetString2Length:	#Sacar el tamaño de String2
+	GetString2Length:	#Sacar el tamaÃ±o de String2
 	lb $t0, 0($t1)
 	beqz $t0, GetChar
 	add $t1, $t1, 1
@@ -376,7 +376,7 @@ containsAllChars:
 		j GetChar			#Volvemos a comprobar el siguiente caracter
 		
 	End:
-		bne $t3, $t4, ReturnFalse2	#Si el contador de caracteres iguales es igual que el tamaño de String1 entonces devolvemos true
+		bne $t3, $t4, ReturnFalse2	#Si el contador de caracteres iguales es igual que el tamaÃ±o de String1 entonces devolvemos true
 		li $v0, 0	#true = 0
 		jr $ra
 		
