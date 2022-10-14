@@ -5,7 +5,7 @@ CadenaRec:	.space 1000
 .text 
 
 	
-#biblioteca de funciones del trabajo final	            
+#biblioteca de distintas funciones del trabajo final	            
 atoi:
 	la	$a2, CadenaRec			# Cadena invertida
 	li	$t0, 0				# Almacen de caracter
