@@ -1,3 +1,4 @@
+# PRACTICA 1 REALIZADA POR JUAN TORRES VILORIA, HECTOR TORIBIO GONZALEZ Y MARIO PEREDA PUYO.
 .data
 	Vector: .space 1000
 	Mensaje1: .asciiz "A continuación vas a introducir una a una las componentes de nuestro vector. \n"
